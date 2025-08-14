@@ -11,4 +11,3 @@ h1 { margin: 0; font-size: 1.6rem; }
 .toolbar { display: flex; gap: .5rem; align-items: center; }
 input[type="search"] { padding: .5rem .7rem; border: 1px solid #ddd; border-radius: 10px; min-width: 220px; }
 footer { margin-top: 1.25rem; color: #666; font-size: .9rem; }
-.note { margin-top: .25rem; font-size: .85rem; }

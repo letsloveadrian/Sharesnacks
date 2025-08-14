@@ -17,8 +17,7 @@ layout: none
   </header>
 
   <div id="grid" class="grid">
-    {%- assign prefix = page.dir | append: 'images/' -%}
-    {%- assign pics = site.static_files | where_exp: "f", "f.path contains prefix" -%}
+    {%- assign pics = site.static_files | where_exp: "f", "f.path contains '/plxcandy/images/'" -%}
     {%- for file in pics -%}
       {%- assign ext = file.extname | downcase -%}
       {%- if ext == '.png' or ext == '.jpg' or ext == '.jpeg' or ext == '.gif' or ext == '.webp' or ext == '.svg' -%}
@@ -31,10 +30,8 @@ layout: none
 
   <footer>
     {{ site.description }} · Last build: {{ site.time | date: "%Y-%m-%d" }}
-    <div class="note">Drop new files into <code>/plxcandy/images/</code> and push.</div>
   </footer>
 </main>
-
 <script>
 const q = document.getElementById('q');
 const cards = [...document.querySelectorAll('.card')];
