@@ -1,0 +1,47 @@
+---
+layout: none
+---
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.title }}</title>
+<link rel="stylesheet" href="{{ '/plxcandy/assets/styles.css' | relative_url }}">
+<body>
+<main>
+  <header>
+    <h1>ShareSnacks Logos</h1>
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="Filter by filename…">
+    </div>
+  </header>
+
+  <div id="grid" class="grid">
+    {%- assign prefix = page.dir | append: 'images/' -%}
+    {%- assign pics = site.static_files | where_exp: "f", "f.path contains prefix" -%}
+    {%- for file in pics -%}
+      {%- assign ext = file.extname | downcase -%}
+      {%- if ext == '.png' or ext == '.jpg' or ext == '.jpeg' or ext == '.gif' or ext == '.webp' or ext == '.svg' -%}
+      <a class="card" href="{{ file.path | relative_url }}" target="_blank" data-name="{{ file.name | downcase }}">
+        <img src="{{ file.path | relative_url }}" alt="{{ file.name }}" loading="lazy">
+      </a>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <footer>
+    {{ site.description }} · Last build: {{ site.time | date: "%Y-%m-%d" }}
+    <div class="note">Drop new files into <code>/plxcandy/images/</code> and push.</div>
+  </footer>
+</main>
+
+<script>
+const q = document.getElementById('q');
+const cards = [...document.querySelectorAll('.card')];
+q.addEventListener('input', () => {
+  const t = q.value.trim().toLowerCase();
+  cards.forEach(c => c.style.display = c.dataset.name.includes(t) ? '' : 'none');
+});
+</script>
+</body>
+</html>
