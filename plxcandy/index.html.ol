@@ -7,17 +7,13 @@ layout: none
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  \1
-  <!-- Favicon / app icons -->
-<link rel="icon" href="{{ '/favicon.ico?v=2' | relative_url }}" sizes="any" type="image/x-icon">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32.png?v=2' | relative_url }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16.png?v=2' | relative_url }}">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png?v=2' | relative_url }}">
-
+  <title>{{ site.title | default: "Sharesnacks Logos" }}</title>
 
   <!-- Favicon (cache-busted) -->
+  <link rel="icon" href="{{ '/favicon.ico?v=1' | relative_url }}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ '/favicon.ico?v=1' | relative_url }}" type="image/x-icon">
 
-<!-- Optional external stylesheet if you have one -->
+  <!-- Optional external stylesheet if you have one -->
   <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
 
   <style>
